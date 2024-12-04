@@ -76,34 +76,23 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="flex flex-col gap-4">
-            <div className="flex justify-end items-center gap-2 sm:gap-5">
-              <Link to={"/profile"}>
-                <img
-                  className="w-8 bg-purple-700 rounded-full"
-                  src={user?.photoURL}
-                  alt=""
-                />
-              </Link>
               <button
                 className="btn bg-purple-700 text-white"
                 onClick={handleSignOut}
               >
                 Sign Out
               </button>
-            </div>
-          </div>
-        ) : pathname === "/login" ? (
+        ) : pathname === "/auth/login" ? (
           <Link
             className="btn mr-5 bg-purple-700 text-white"
-            to={"/register"}
+            to={"/auth/register"}
           >
             Sign UP
           </Link>
         ) : (
           <Link
             className="btn mr-5 bg-purple-700 text-white"
-            to={"/login"}
+            to={"/auth/login"}
           >
             Sign In
           </Link>

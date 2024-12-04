@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home";
 import AuthProvider from "./Context/AuthProvider";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
+import AuthLayout from "./Pages/Authentication/AuthLayout";
 
 const router = createBrowserRouter([
   {
@@ -13,13 +14,19 @@ const router = createBrowserRouter([
     element: <Home></Home>,
   },
   {
-    path: "/login",
-    element: <Login></Login>,
-  },
-  {
-    path: "/register",
-    element: <Register></Register>,
-  },
+    path: '/auth',
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/auth/register",
+        element: <Register></Register>,
+      },
+    ]
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(
