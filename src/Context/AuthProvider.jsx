@@ -32,12 +32,12 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  //   const Update_information = (name, photo) => {
-  //     updateProfile(auth.currentUser, {
-  //       displayName: name,
-  //       photoURL: photo,
-  //     });
-  //   };
+    const Update_information = (name, photo) => {
+      updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photo,
+      });
+    };
 
   const handleSignOut = () => {
     signOut(auth);
@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
     SignUpEmailAndPassword,
     handleSignOut,
     SignInGoogle,
-    //     Update_information,
+        Update_information,
     loading,
     loginEmail,
     setLoginEmail,

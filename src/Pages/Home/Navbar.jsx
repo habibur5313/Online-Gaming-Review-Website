@@ -1,10 +1,5 @@
 import React, { useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
-import { SiBrandfolder } from "react-icons/si";
-import { ImProfile } from "react-icons/im";
-// import logo from "../../../src/assets/logo.png";
-import { GrHistory } from "react-icons/gr";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Navbar = () => {
@@ -13,29 +8,11 @@ const Navbar = () => {
 
   const links = (
     <>
-      <NavLink className={"flex items-center gap-1"} to={"/"}>
-        <FaHome />
-        Home
-      </NavLink>
-      <NavLink className={"flex items-center gap-1"} to={"/brands"}>
-        <SiBrandfolder />
-        Brands
-      </NavLink>
-      {user && (
-        <NavLink className={"flex items-center gap-1"} to={"/profile"}>
-          <ImProfile />
-          My Profile
-        </NavLink>
-      )}
-      {user && (
-        <NavLink className={"flex items-center gap-1"} to={"/addToCart"}>
-          <GrHistory />
-          Cart
-        </NavLink>
-      )}
-      <NavLink className={"flex items-center gap-1"} to={"/about/dev"}>
-        About dev
-      </NavLink>
+      <NavLink to={"/"}>Home</NavLink>
+      <NavLink to={"/allReviews"}>All Reviews</NavLink>
+      {user && <NavLink to={"/addReview"}>Add Review</NavLink>}
+      {user && <NavLink to={"/myReview"}>My Reviews</NavLink>}
+      {user && <NavLink to={"/gameWatchList"}>Game WatchList</NavLink>}
     </>
   );
 
@@ -67,7 +44,10 @@ const Navbar = () => {
           </ul>
         </div>
         {/* <h3 className="btn btn-ghost  pl-0 md:text-3xl sm:text-xl font-semibold  ">Coupon Chief</h3> */}
-        <h1 className="text-4xl font-semibold text-purple-500"> Chill Gamer </h1>
+        <h1 className="text-4xl font-semibold text-purple-500">
+          {" "}
+          Chill Gamer{" "}
+        </h1>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-2 xl:gap-4 text-xl font-medium ">
@@ -76,12 +56,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-              <button
-                className="btn bg-purple-700 text-white"
-                onClick={handleSignOut}
-              >
-                Sign Out
-              </button>
+          <button
+            className="btn bg-purple-700 text-white"
+            onClick={handleSignOut}
+          >
+            Sign Out
+          </button>
         ) : pathname === "/auth/login" ? (
           <Link
             className="btn mr-5 bg-purple-700 text-white"

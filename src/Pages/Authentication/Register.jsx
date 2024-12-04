@@ -2,9 +2,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider";
-// import { AuthContext } from "../../Context/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
   useEffect(() => {
@@ -30,7 +29,13 @@ const Register = () => {
         "Password atleast 1 lowercase letter 1 uppercase letter 1 number 1 special characters and atleast 6 characters"
       );
     } else if (!terms) {
-      return toast.error("please checked terms and condition");
+      return Swal.fire({
+        position: "top-center",
+        icon: "error",
+        title: "please check terms and condition",
+        showConfirmButton: false,
+        timer: 1000,
+      });
     }
 
     SignUpEmailAndPassword(email, password)
@@ -38,13 +43,25 @@ const Register = () => {
         setError();
         setUser(res.user);
         Update_information(name, photo);
-        toast.success("Register Successfully");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Register successfully",
+          showConfirmButton: false,
+          timer: 1000,
+        });
         navigate("/");
       })
 
       .catch((err) => {
         setError();
-        toast.error(err.message);
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: err.message,
+          showConfirmButton: false,
+          timer: 1000,
+        });
       });
   };
 
@@ -52,10 +69,23 @@ const Register = () => {
     SignInGoogle()
       .then((res) => {
         setUser(res.user);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Register successfully",
+          showConfirmButton: false,
+          timer: 1000,
+        });
         navigate("/");
       })
       .catch((err) => {
-        toast.error(err.message);
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: err.message,
+          showConfirmButton: false,
+          timer: 1000,
+        });
       });
   };
   return (

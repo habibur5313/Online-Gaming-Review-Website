@@ -7,6 +7,8 @@ import AuthProvider from "./Context/AuthProvider";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
 import AuthLayout from "./Pages/Authentication/AuthLayout";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import AddReview from "./Pages/AddReview/AddReview";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,15 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
     ]
+  },
+  {
+    path: '/addReview',
+    element: <PrivateRoute><AddReview></AddReview></PrivateRoute>
+  },
+  
+  {
+    path: '*',
+    element: 'error'
   }
 ]);
 

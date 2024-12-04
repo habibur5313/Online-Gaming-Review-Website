@@ -1,8 +1,8 @@
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   useEffect(() => {
@@ -21,13 +21,25 @@ const Login = () => {
     SignInEmailAndPassword(email, password)
       .then((res) => {
         setUser(res.user);
-        toast.success("Login Successfully");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login successfully",
+          showConfirmButton: false,
+          timer: 1000,
+        });
         {
           location.state ? navigate(location.state) : navigate("/");
         }
       })
       .catch((err) => {
-        toast.error(err.message);
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: err.message,
+          showConfirmButton: false,
+          timer: 1000,
+        });
       });
   };
   const handleGoogleLogin = () => {
@@ -37,7 +49,13 @@ const Login = () => {
         navigate("/");
       })
       .catch((err) => {
-        toast.error(err.message);
+        Swal.fire({
+          position: "top-center",
+          icon: "error" ,
+          title: err.message,
+          showConfirmButton: false,
+          timer: 1000,
+        });
       });
   };
 
