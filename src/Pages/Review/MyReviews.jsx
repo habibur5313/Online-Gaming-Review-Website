@@ -10,12 +10,10 @@ const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
-  useEffect(() =>{
-                    const remaining = loaderData.filter((data) => data.email === user.email);
-  setReviews(remaining);
-  
-  },[])
-
+  useEffect(() => {
+    const filteRing = loaderData.filter((data) => data.email === user.email);
+    setReviews(filteRing);
+  }, []);
 
   return (
     <div>
@@ -30,17 +28,16 @@ const MyReviews = () => {
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Photo</th>
+                  <th className="hidden sm:block">Photo</th>
                   <th>Name</th>
-                  <th>Description</th>
-                  <th>Rating</th>
-                  <th>Year</th>
-                  <th>Genres</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 {reviews.map((review, index) => (
                   <ReviewCard
+                  reviews={reviews}
+                  setReviews={setReviews}
                     key={review._id}
                     idx={index}
                     review={review}
@@ -53,7 +50,6 @@ const MyReviews = () => {
       </div>
       <Footer></Footer>
     </div>
-
   );
 };
 
