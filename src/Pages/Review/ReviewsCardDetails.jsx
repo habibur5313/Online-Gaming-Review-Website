@@ -24,6 +24,7 @@ const ReviewsCardDetails = () => {
             <div className="card-body">
               <h2 className="text-3xl font-semibold">{loaderData?.name}</h2>
               <p className="text-xl font-medium">email: {loaderData?.email}</p>
+              <p className="text-xl font-medium">name: {loaderData?.displayName}</p>
               <p className="text-xl font-medium">rating: {loaderData?.rating}</p>
               <p className="text-xl font-medium">year: {loaderData?.year}</p>
               <p className="text-xl font-medium">genres: {loaderData?.genres}</p>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -16,7 +16,7 @@ const AddReview = () => {
     const year = form.year.value;
     const genres = form.genres.value;
     const email = user?.email;
-    const displayName = user?.displayName
+    const displayName = user?.displayName;
     const review = {
       thumbnailUrl,
       name,
@@ -25,16 +25,47 @@ const AddReview = () => {
       year,
       genres,
       email,
-      displayName
+      displayName,
     };
     // console.log(review);
 
-    fetch('http://localhost:5000/reviews',{
-                    method: 'POST',
-                    headers: {'content-type' : 'application/json'},
-                    body: JSON.stringify(review)
-    })
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(review),
+    });
   };
+  const currentYear = new Date().getFullYear();
+  const [selectedYear, setSelectedYear] = useState(currentYear);
+  const years = [];
+  for (let year = 2021; year <= currentYear; year++) {
+    years.push(year);
+  }
+
+  const handleYearChange = (event) => {
+    event.preventDefault();
+    setSelectedYear(event.target.value);
+    // console.log(event.target.value);
+  };
+
+  const currentRank = 5;
+  const [selectedRank, setSelectedRank] = useState(currentRank);
+  const ratings = [];
+  for (let rank = 1; rank <= currentRank; rank++) {
+    ratings.push(rank);
+  }
+
+  const handleRatingChange = (e) => {
+    e.preventDefault();
+    setSelectedRank(e.target.value);
+  };
+
+  const [selectedValue, setSelectedValue] = useState("");
+  const stringOptions = ["Auction", "RPG", "Adventure"];
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
   return (
     <div>
       <div className="container mx-auto border">
@@ -43,10 +74,10 @@ const AddReview = () => {
         </div>
         <div className="min-h-[calc(100vh-250px)]">
           <form onSubmit={handleAddReview}>
-          <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12  mx-auto flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
+            <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12  mx-auto flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
               <input
                 type="text"
-               value={user?.displayName}
+                value={user?.displayName}
                 className="input input-bordered h-14 w-full"
               />
               <input
@@ -79,27 +110,54 @@ const AddReview = () => {
             </div>
 
             <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12 mx-auto flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
-              <input
-                type="number"
-                placeholder="Type rating"
-                name="rating"
-                className="input input-bordered h-14 w-full"
-              />
-              <input
-                type="number"
-                placeholder="Type Year"
-                name="year"
-                className="input input-bordered w-full h-14"
-              />
+              <div className="w-full">
+                <select
+                  className="input input-bordered h-14 w-full "
+                  name="rating"
+                  value={selectedRank}
+                  onChange={handleRatingChange}
+                >
+                  {ratings.map((rank) => (
+                    <option key={rank} value={rank}>
+                      {rank}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="w-full">
+                <select
+                  className="input input-bordered h-14 w-full "
+                  name="year"
+                  value={selectedYear}
+                  onChange={handleYearChange}
+                >
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12 mx-auto md:flex gap-4 mt-4 md:mt-8">
-              <input
-                type="text"
-                placeholder="Type genres"
-                name="genres"
-                className="input input-bordered h-14 w-full"
-              />
+              <div className="w-full">
+                <select
+                className="input input-bordered h-14 w-full "
+                  name="genres"
+                  value={selectedValue}
+                  onChange={handleSelectChange}
+                >
+                  {" "}
+                  <option value="">Select an option</option>{" "}
+                  {stringOptions.map((option, index) => (
+                    <option key={index} value={option}>
+                      {" "}
+                      {option}{" "}
+                    </option>
+                  ))}{" "}
+                </select>
+              </div>
             </div>
             <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12 mx-auto mt-10">
               <input
