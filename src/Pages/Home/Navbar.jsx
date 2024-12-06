@@ -12,12 +12,12 @@ const Navbar = () => {
       <NavLink to={"/allReviews"}>All Reviews</NavLink>
       {user && <NavLink to={"/addReview"}>Add Review</NavLink>}
       {user && <NavLink to={"/myReview"}>My Reviews</NavLink>}
-      {user && <NavLink to={"/gameWatchList"}>Game WatchList</NavLink>}
+      {user && <NavLink to={"/WatchList"}>WatchList</NavLink>}
     </>
   );
 
   return (
-    <div className=" navbar pt-4 min-h-[140px] items-start bg-white  rounded-xl ">
+    <div className=" navbar pt-4  items-start bg-white  rounded-xl ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -56,12 +56,14 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
+          <div className="flex gap-4">
+            <button><img className="w-10 rounded-full" src={user?.photoURL} alt="" /></button>
           <button
             className="btn bg-purple-700 text-white"
             onClick={handleSignOut}
           >
             Sign Out
-          </button>
+          </button></div>
         ) : pathname === "/auth/login" ? (
           <Link
             className="btn mr-5 bg-purple-700 text-white"

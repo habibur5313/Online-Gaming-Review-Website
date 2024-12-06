@@ -1,11 +1,22 @@
 import React, { useContext, useState } from "react";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
-import { AuthContext } from "../../Context/AuthProvider";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AddReview = () => {
-  const { user } = useContext(AuthContext);
+const UpdateReview = () => {
+  const loaderData = useLoaderData();
+  const {
+    description,
+    displayName,
+    email,
+    genres,
+    name,
+    rating,
+    thumbnailUrl,
+    year,
+    _id,
+  } = loaderData;
 
   const handleAddReview = (e) => {
     e.preventDefault();
@@ -16,8 +27,6 @@ const AddReview = () => {
     const rating = form.rating.value;
     const year = form.year.value;
     const genres = form.genres.value;
-    const email = user?.email;
-    const displayName = user?.displayName;
     const review = {
       thumbnailUrl,
       name,
@@ -28,55 +37,39 @@ const AddReview = () => {
       email,
       displayName,
     };
-    // console.log(review);
 
-    fetch("https://assaignmet-10-server.vercel.app/reviews", {
-      method: "POST",
+    fetch(`https://assaignmet-10-server.vercel.app/reviews/${_id}`, {
+      method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(review),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
+        if (data.modifiedCount) {
           Swal.fire({
             position: "top-center",
             icon: "success",
-            title: "Review Added successfully",
+            title: "Updated successfully",
             showConfirmButton: false,
             timer: 1500,
           });
         }
       });
   };
+
   const currentYear = new Date().getFullYear();
-  const [selectedYear, setSelectedYear] = useState(currentYear);
   const years = [];
   for (let year = 2021; year <= currentYear; year++) {
     years.push(year);
   }
 
-  const handleYearChange = (event) => {
-    event.preventDefault();
-    setSelectedYear(event.target.value);
-  };
-
   const currentRank = 5;
-  const [selectedRank, setSelectedRank] = useState(currentRank);
   const ratings = [];
   for (let rank = 1; rank <= currentRank; rank++) {
     ratings.push(rank);
   }
 
-  const handleRatingChange = (e) => {
-    e.preventDefault();
-    setSelectedRank(e.target.value);
-  };
-
-  const [selectedValue, setSelectedValue] = useState("");
   const stringOptions = ["Auction", "RPG", "Adventure"];
-  const handleSelectChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
 
   return (
     <div>
@@ -89,25 +82,25 @@ const AddReview = () => {
             <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12  mx-auto flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
               <input
                 type="text"
-                value={user?.displayName}
+                value={displayName}
                 className="input input-bordered h-14 w-full"
               />
               <input
                 type="text"
-                value={user?.email}
+                value={email}
                 className="input input-bordered w-full h-14"
               />
             </div>
             <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12 mx-auto flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
               <input
                 type="text"
-                placeholder="Type Thumbnail URL"
+                defaultValue={thumbnailUrl}
                 name="thumbnailUrl"
                 className="input input-bordered h-14 w-full"
               />
               <input
                 type="text"
-                placeholder="Type Review title"
+                defaultValue={name}
                 name="name"
                 className="input input-bordered w-full h-14"
               />
@@ -115,7 +108,7 @@ const AddReview = () => {
 
             <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12 mx-auto mt-4 md:mt-8">
               <textarea
-                placeholder="type review description"
+                defaultValue={description}
                 name="description"
                 className="textarea textarea-bordered h-14 w-full"
               ></textarea>
@@ -126,8 +119,7 @@ const AddReview = () => {
                 <select
                   className="input input-bordered h-14 w-full "
                   name="rating"
-                  value={selectedRank}
-                  onChange={handleRatingChange}
+                  defaultValue={rating}
                 >
                   {ratings.map((rank) => (
                     <option key={rank} value={rank}>
@@ -140,8 +132,7 @@ const AddReview = () => {
                 <select
                   className="input input-bordered h-14 w-full "
                   name="year"
-                  value={selectedYear}
-                  onChange={handleYearChange}
+                  defaultValue={year}
                 >
                   {years.map((year) => (
                     <option key={year} value={year}>
@@ -157,8 +148,7 @@ const AddReview = () => {
                 <select
                   className="input input-bordered h-14 w-full "
                   name="genres"
-                  value={selectedValue}
-                  onChange={handleSelectChange}
+                  defaultValue={genres}
                 >
                   {" "}
                   <option value="">Select an option</option>{" "}
@@ -175,7 +165,7 @@ const AddReview = () => {
               <input
                 type="submit"
                 className="w-full btn btn-accent text-white font-medium text-xl"
-                value="Add Review"
+                value="Update Review"
               />
             </div>
           </form>
@@ -186,4 +176,4 @@ const AddReview = () => {
   );
 };
 
-export default AddReview;
+export default UpdateReview;

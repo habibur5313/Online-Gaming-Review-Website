@@ -16,7 +16,7 @@ const ReviewCard = ({ review, idx,setReviews,reviews }) => {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://assaignmet-10-server.vercel.app/reviews/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -46,9 +46,9 @@ const ReviewCard = ({ review, idx,setReviews,reviews }) => {
         >
           <TiDelete />
         </button>
-        <button className="btn btn-accent text-xl text-red-700 ">
+        <Link to={`/reviews/update/${review._id}`}><button className="btn btn-accent text-xl text-red-700 ">
           <GrUpdate />
-        </button>
+        </button></Link>
         <Link className="sm:flex justify-center items-center hidden  " to={`/reviews/details/${review._id}`}><button className="btn btn-accent text-white text-xl font-medium">View details</button></Link>
       </td>
     </tr>

@@ -12,6 +12,8 @@ import AddReview from "./Pages/Review/AddReview";
 import AllReview from "./Pages/Review/AllReview";
 import MyReviews from "./Pages/Review/MyReviews";
 import ReviewsCardDetails from "./Pages/Review/ReviewsCardDetails";
+import UpdateReview from "./Pages/Review/UpdateReview";
+import GameWatchList from "./Pages/Review/GameWatchList";
 
 const router = createBrowserRouter([
   {
@@ -39,17 +41,27 @@ const router = createBrowserRouter([
   {
     path: '/allReviews',
     element: <AllReview></AllReview>,
-    loader: () => fetch('http://localhost:5000/reviews')
+    loader: () => fetch('https://assaignmet-10-server.vercel.app/reviews')
   },
   {
     path: '/myReview',
     element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
-    loader: () => fetch('http://localhost:5000/reviews')
+    loader: () => fetch('https://assaignmet-10-server.vercel.app/reviews')
   },
   {
     path: '/reviews/details/:id',
     element: <ReviewsCardDetails></ReviewsCardDetails> ,
-    loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+    loader: ({params}) => fetch(`https://assaignmet-10-server.vercel.app/reviews/${params.id}`)
+  },
+  {
+    path: '/reviews/update/:id',
+    element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute> ,
+    loader: ({params}) => fetch(`https://assaignmet-10-server.vercel.app/reviews/${params.id}`)
+  },
+  {
+    path: '/WatchList',
+    element: <PrivateRoute><GameWatchList></GameWatchList></PrivateRoute>
+   
   },
   
   {
