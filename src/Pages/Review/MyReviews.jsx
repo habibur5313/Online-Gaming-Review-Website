@@ -22,6 +22,9 @@ const MyReviews = () => {
           <Navbar></Navbar>
         </div>
         <div className="min-h-[calc(100vh-250px)]">
+        <h1 className="text-3xl mt-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
+          {user.displayName},Your All review is here.
+        </h1>
           <div className="overflow-x-auto">
             <table className="table">
               {/* head */}

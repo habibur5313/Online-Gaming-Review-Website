@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
@@ -8,7 +8,8 @@ const ReviewsCardDetails = () => {
   const loaderData = useLoaderData();
   const {thumbnailUrl,name,email,displayName,rating,year,genres,description,_id} = loaderData
   const [isDisabled,setIsDisabled] = useState(false)
-const handleAddToWatchList = () => {
+const handleAddToWatchList = async (id) => {
+  
   const WatchList = {thumbnailUrl,name,email,displayName,rating,year,genres,description,id: _id}
   fetch('https://assaignmet-10-server.vercel.app/watchLists',{
     method: 'POST',
@@ -18,7 +19,7 @@ const handleAddToWatchList = () => {
   .then(res => res.json())
   .then(data => {
     if (data.insertedId) {
-      // setIsDisabled(true)
+      setIsDisabled(true)
       Swal.fire({
         position: "top-center",
         icon: "success",
@@ -29,6 +30,7 @@ const handleAddToWatchList = () => {
     }
     
   })
+  
   
   
 }
@@ -54,7 +56,7 @@ const handleAddToWatchList = () => {
               <p className="text-xl font-medium">year: {year}</p>
               <p className="text-xl font-medium">genres: {genres}</p>
               <p className="text-xl font-medium">description: {description}</p>
-            <button disabled={isDisabled ? true : false}  onClick={handleAddToWatchList} className="btn btn-accent text-white text-xl font-semibold">Add To WatchList</button>
+            <button disabled={isDisabled ? true : false}  onClick={() => handleAddToWatchList(_id)} className="btn btn-accent text-white text-xl font-semibold">Add To WatchList</button>
             </div>
           </div>
         </div>

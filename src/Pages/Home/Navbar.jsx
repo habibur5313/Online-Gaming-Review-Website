@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
@@ -15,9 +15,13 @@ const Navbar = () => {
       {user && <NavLink to={"/WatchList"}>WatchList</NavLink>}
     </>
   );
+  const [showDropdown, setShowDropdown] = useState(false);
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   return (
-    <div className=" navbar pt-4  items-start bg-white  rounded-xl ">
+    <div className=" navbar pt-4  items-start rounded-xl ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -56,14 +60,37 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="flex gap-4">
-            <button><img className="w-10 rounded-full" src={user?.photoURL} alt="" /></button>
-          <button
-            className="btn bg-purple-700 text-white"
-            onClick={handleSignOut}
-          >
-            Sign Out
-          </button></div>
+          <div className="flex gap-4 relative">
+            <button>
+              <img
+                className="w-10 rounded-full cursor-pointer"
+                src={user?.photoURL}
+                alt=""
+                onMouseEnter={toggleDropdown}
+                onMouseLeave={toggleDropdown}
+              />
+            </button>
+     {showDropdown && (
+        <div
+          className="absolute top-12 right-1 bg-white rounded-md shadow-lg z-10"
+          onMouseEnter={() => setShowDropdown(true)}
+          onMouseLeave={() => setShowDropdown(false)}
+        >
+          {" "}
+          <div className="p-4">
+            {" "}
+            <p className="text-gray-700">{user?.displayName}</p>{" "}
+            <p className="text-gray-500">{user?.email}</p>{" "}
+          </div>{" "}
+        </div>
+      )}
+            <button
+              className="btn bg-purple-700 text-white"
+              onClick={handleSignOut}
+            >
+              Sign Out
+            </button>
+          </div>
         ) : pathname === "/auth/login" ? (
           <Link
             className="btn mr-5 bg-purple-700 text-white"
@@ -79,7 +106,9 @@ const Navbar = () => {
             Sign In
           </Link>
         )}
+        
       </div>
+     
     </div>
   );
 };

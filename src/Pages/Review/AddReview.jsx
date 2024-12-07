@@ -85,6 +85,9 @@ const AddReview = () => {
           <Navbar></Navbar>
         </div>
         <div className="min-h-[calc(100vh-250px)]">
+        <h1 className="text-3xl mt-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
+         {user.displayName},please add your review.
+        </h1>
           <form onSubmit={handleAddReview}>
             <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12  mx-auto flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
               <input
