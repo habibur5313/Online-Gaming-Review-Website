@@ -6,34 +6,49 @@ import Swal from "sweetalert2";
 
 const ReviewsCardDetails = () => {
   const loaderData = useLoaderData();
-  const {thumbnailUrl,name,email,displayName,rating,year,genres,description,_id} = loaderData
-  const [isDisabled,setIsDisabled] = useState(false)
-const handleAddToWatchList = async (id) => {
-  
-  const WatchList = {thumbnailUrl,name,email,displayName,rating,year,genres,description,id: _id}
-  fetch('https://assaignmet-10-server.vercel.app/watchLists',{
-    method: 'POST',
-    headers: {'content-type' : 'application/json'},
-    body: JSON.stringify(WatchList)
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.insertedId) {
-      setIsDisabled(true)
-      Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: "Add To WatchList successfully",
-        showConfirmButton: false,
-        timer: 1500,
+  const {
+    thumbnailUrl,
+    name,
+    email,
+    displayName,
+    rating,
+    year,
+    genres,
+    description,
+    _id,
+  } = loaderData;
+  const [isDisabled, setIsDisabled] = useState(false);
+  const handleAddToWatchList = (id) => {
+    const WatchList = {
+      thumbnailUrl,
+      name,
+      email,
+      displayName,
+      rating,
+      year,
+      genres,
+      description,
+      id: _id,
+    };
+    fetch("https://assaignmet-10-server.vercel.app/watchLists", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(WatchList),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          setIsDisabled(true);
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Add To WatchList successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       });
-    }
-    
-  })
-  
-  
-  
-}
+  };
   return (
     <div>
       <div className="container mx-auto border">
@@ -44,7 +59,8 @@ const handleAddToWatchList = async (id) => {
           <div className="card bg-base-100 max-w-2xl mx-auto shadow-xl">
             <figure>
               <img
-                className="w-full h-[400px]" src={thumbnailUrl}
+                className="w-full h-[400px]"
+                src={thumbnailUrl}
                 alt="Shoes"
               />
             </figure>
@@ -56,7 +72,13 @@ const handleAddToWatchList = async (id) => {
               <p className="text-xl font-medium">year: {year}</p>
               <p className="text-xl font-medium">genres: {genres}</p>
               <p className="text-xl font-medium">description: {description}</p>
-            <button disabled={isDisabled ? true : false}  onClick={() => handleAddToWatchList(_id)} className="btn btn-accent text-white text-xl font-semibold">Add To WatchList</button>
+              <button
+                disabled={isDisabled ? true : false}
+                onClick={() => handleAddToWatchList(_id)}
+                className="btn btn-accent text-white text-xl font-semibold"
+              >
+                Add To WatchList
+              </button>
             </div>
           </div>
         </div>

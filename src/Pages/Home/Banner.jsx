@@ -36,26 +36,26 @@ export default function Banner() {
       >
         <SwiperSlide>
           <img
-            className="w-full h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
-            src="https://i.ibb.co.com/WPgs25d/Screenshot-2024-11-21-160741.png"
+            className="w-full lg:w-10/12 mx-auto h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
+            src="https://i.ibb.co.com/1KN7BXj/images-6.jpg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="w-full h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
-            src="https://i.ibb.co.com/nC43Bdy/images-5.jpg"
+            className="w-full lg:w-10/12 mx-auto h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
+            src="https://i.ibb.co.com/cc2YsWK/download-1.jpg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="w-full h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
-            src="https://i.ibb.co.com/3RJ7dt4/images-6.jpg"
+            className="w-full lg:w-10/12 mx-auto h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
+            src="https://i.ibb.co.com/PcGGVwc/download.jpg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="w-full h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
-            src="https://i.ibb.co.com/y0trmtD/images-4.png"
+            className="w-full lg:w-10/12 mx-auto h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
+            src="https://i.ibb.co.com/rZdMKdh/images-3.jpg"
           />
         </SwiperSlide>
       </Swiper>
@@ -71,25 +71,25 @@ export default function Banner() {
         <SwiperSlide>
           <img
             className="rounded-xl h-[120px]"
-            src="https://i.ibb.co.com/WPgs25d/Screenshot-2024-11-21-160741.png"
+            src="https://i.ibb.co.com/1KN7BXj/images-6.jpg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="rounded-xl h-[120px]"
-            src="https://i.ibb.co.com/nC43Bdy/images-5.jpg"
+            src="https://i.ibb.co.com/cc2YsWK/download-1.jpg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="rounded-xl h-[120px]"
-            src="https://i.ibb.co.com/3RJ7dt4/images-6.jpg"
+            src="https://i.ibb.co.com/PcGGVwc/download.jpg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="rounded-xl h-[120px]"
-            src="https://i.ibb.co.com/y0trmtD/images-4.png"
+            src="https://i.ibb.co.com/rZdMKdh/images-3.jpg"
           />
         </SwiperSlide>
       </Swiper>

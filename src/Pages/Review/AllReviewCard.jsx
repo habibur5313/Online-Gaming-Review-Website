@@ -7,7 +7,7 @@ const AllReviewCard = ({ review, idx }) => {
       <figure>
         <img
          className="w-full " src={review.thumbnailUrl}
-          alt="Shoes"
+          alt={review?.name}
         />
       </figure>
       <div className="card-body flex flex-col justify-center">
