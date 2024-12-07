@@ -4,19 +4,23 @@ import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 import Banner from "./Banner";
 import HighestRatedReview from "./HighestRatedReview";
+import ReviewVideo from "./ReviewVideo";
 
 const Home = () => {
   return (
     <>
-      <div className="container mx-auto border">
+      <div className="container mx-auto ">
         <div className="w-11/12 mx-auto">
           <Navbar></Navbar>
         </div>
-        <Banner></Banner>
+       <div className="min-h-[calc(100vh-250px)]">
+       <Banner></Banner>
         <HighestRatedReview></HighestRatedReview>
-        <div className="min-h-[calc(100vh-250px)]">
+        <ReviewVideo></ReviewVideo>
+
           <Outlet></Outlet>
-        </div>
+       </div>
+
       </div>
       <Footer></Footer>
     </>

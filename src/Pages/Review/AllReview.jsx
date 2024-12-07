@@ -14,7 +14,7 @@ const handleSortByRating = () => {
   
 }
 const handleSortByYear = () => {
- fetch('https://assaignmet-10-server.vercel.app/addReviews/year')
+ fetch('https://assaignmet-10-server.vercel.app/AllReviews/year')
  .then(res => res.json())
  .then(data => setReviews(data))
   
@@ -22,12 +22,13 @@ const handleSortByYear = () => {
 
 
   return (
-    <div>
-      <div className="container mx-auto border">
+    <div >
+      <div className="container mx-auto">
         <div className="w-11/12 mx-auto">
           <Navbar></Navbar>
         </div>
-        <h1 className="text-3xl mt-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
+       <div className="min-h-[calc(100vh-250px)]">
+       <h1 className="text-3xl mt-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
           All Review is here
         </h1>
         <div className="flex justify-end">
@@ -48,15 +49,15 @@ const handleSortByYear = () => {
           </ul>
         </div>
         </div>
-        <div className="min-h-[calc(100vh-250px)] mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-4">
-          {reviews.map((review, index) => (
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {reviews.map((review) => (
             <AllReviewCard
               key={review._id}
-              idx={index}
               review={review}
             ></AllReviewCard>
           ))}
         </div>
+       </div>
       </div>
       <Footer></Footer>
     </div>

@@ -25,8 +25,8 @@ export default function Banner() {
       )}
       <Swiper
         style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
+          "--swiper-navigation-color": "black",
+          "--swiper-pagination-color": "black",
         }}
         spaceBetween={10}
         navigation={true}

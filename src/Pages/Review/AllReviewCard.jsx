@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AllReviewCard = ({ review, idx }) => {
+const AllReviewCard = ({ review}) => {
   return (
-   <>
+   <div>
     <div className="card bg-base-100 h-[300px]  image-full shadow-xl">
       <figure>
         <img
@@ -22,7 +22,7 @@ const AllReviewCard = ({ review, idx }) => {
         
       </div>
     </div>
-   </>
+   </div>
   );
 };
 
