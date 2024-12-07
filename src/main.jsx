@@ -14,6 +14,7 @@ import MyReviews from "./Pages/Review/MyReviews";
 import ReviewsCardDetails from "./Pages/Review/ReviewsCardDetails";
 import UpdateReview from "./Pages/Review/UpdateReview";
 import GameWatchList from "./Pages/Review/GameWatchList";
+import Error from "./Error/Error";
 
 const router = createBrowserRouter([
   {
@@ -66,7 +67,7 @@ const router = createBrowserRouter([
   
   {
     path: '*',
-    element: 'error'
+    element: <Error></Error>
   }
 ]);
 

@@ -8,13 +8,13 @@ const AllReview = () => {
   const loaderData = useLoaderData();
   const [reviews,setReviews] = useState(loaderData)
 const handleSortByRating = () => {
- fetch('https://assaignmet-10-server.vercel.app/reviews/sort')
+ fetch('https://assaignmet-10-server.vercel.app/AllReviews/sort')
  .then(res => res.json())
  .then(data => setReviews(data))
   
 }
 const handleSortByYear = () => {
- fetch('https://assaignmet-10-server.vercel.app/reviews/year')
+ fetch('https://assaignmet-10-server.vercel.app/addReviews/year')
  .then(res => res.json())
  .then(data => setReviews(data))
   
