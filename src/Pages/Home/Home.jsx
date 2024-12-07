@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 import Banner from "./Banner";
+import HighestRatedReview from "./HighestRatedReview";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
           <Navbar></Navbar>
         </div>
         <Banner></Banner>
+        <HighestRatedReview></HighestRatedReview>
         <div className="min-h-[calc(100vh-250px)]">
           <Outlet></Outlet>
         </div>
