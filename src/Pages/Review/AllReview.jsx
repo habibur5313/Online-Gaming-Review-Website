@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
-import ReviewCard from "./ReviewCard";
 import AllReviewCard from "./AllReviewCard";
 
 const AllReview = () => {
   const loaderData = useLoaderData();
-  //   console.log(loaderData);
+  const [reviews,setReviews] = useState(loaderData)
+const handleSortByRating = () => {
+ fetch('https://assaignmet-10-server.vercel.app/reviews/sort')
+ .then(res => res.json())
+ .then(data => setReviews(data))
+  
+}
+const handleSortByYear = () => {
+ fetch('https://assaignmet-10-server.vercel.app/reviews/year')
+ .then(res => res.json())
+ .then(data => setReviews(data))
+  
+}
+
 
   return (
     <div>
@@ -16,10 +28,28 @@ const AllReview = () => {
           <Navbar></Navbar>
         </div>
         <h1 className="text-3xl mt-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
-         All Review is here
+          All Review is here
         </h1>
+        <div className="flex justify-end">
+        <div className="dropdown ">
+          <div tabIndex={0} role="button" className="btn m-1 mr-10 md:mr-20 text-2xl font-semibold">
+            Sort
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content mt-5 menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow"
+          >
+            <li>
+              <button onClick={handleSortByRating} className="text-xl font-medium">Sort By Rating</button>
+            </li>
+            <li>
+             <button onClick={handleSortByYear} className="text-xl font-medium">Sort By Year</button>
+            </li>
+          </ul>
+        </div>
+        </div>
         <div className="min-h-[calc(100vh-250px)] mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-4">
-          {loaderData.map((review, index) => (
+          {reviews.map((review, index) => (
             <AllReviewCard
               key={review._id}
               idx={index}

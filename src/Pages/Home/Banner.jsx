@@ -19,7 +19,7 @@ export default function Banner() {
   return (
     <>
       {user && (
-        <h1 className="text-3xl mt-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
+        <h1 className="text-3xl mt-10 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
           Hello {user.displayName},Welcome To dashboard
         </h1>
       )}

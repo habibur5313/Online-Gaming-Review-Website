@@ -49,7 +49,7 @@ const ReviewCard = ({ review, idx,setReviews,reviews }) => {
         <Link to={`/reviews/update/${review._id}`}><button className="btn btn-accent text-xl text-red-700 ">
           <GrUpdate />
         </button></Link>
-        <Link className="sm:flex justify-center items-center hidden  " to={`/reviews/details/${review._id}`}><button className="btn btn-accent text-white text-xl font-medium">View details</button></Link>
+        <Link className="sm:flex justify-center items-center hidden  " to={`/reviews/details/${review._id}`}><button className="btn btn-accent text-white text-xl font-medium">explore details</button></Link>
       </td>
     </tr>
   );
