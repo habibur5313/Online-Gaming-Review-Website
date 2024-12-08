@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -16,22 +16,22 @@ import { Typewriter } from "react-simple-typewriter";
 
 export default function Banner() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const { user } = useContext(AuthContext);
+ const {user} = useContext(AuthContext)
   return (
     <>
+     
       {user && (
         <h1 className="text-3xl mt-10 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
           {/*  */}
-          Hello {user.displayName},Welcome To 
+          Hello {user.displayName},Welcome To
           <Typewriter
-            words={[' Home', ' Dashboard', ' Website']}
+            words={[" Home", " Dashboard", " Website"]}
             loop={30}
             cursor
-            cursorStyle='_'
+            cursorStyle="_"
             typeSpeed={70}
             deleteSpeed={50}
             delaySpeed={1000}
-          
           />
         </h1>
       )}

@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Tooltip } from "react-tooltip";
 
-const Navbar = () => {
+const Navbar = ({toggleDarkMode}) => {
   const { user, handleSignOut } = useContext(AuthContext);
   const { pathname } = useLocation();
 
@@ -39,7 +39,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className= " menu menu-sm dropdown-content bg-base-100  rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
@@ -56,7 +56,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="flex gap-4 relative">
+          <div className="flex items-center gap-4 relative">
+            
             <button>
               <img
                 className="w-10 rounded-full my-anchor-element cursor-pointer"
@@ -71,7 +72,10 @@ const Navbar = () => {
                 <p className="text-white">{user?.email}</p>
               </div>
             </Tooltip>
-
+            <button onClick={toggleDarkMode} className="p-2 m-4 border rounded hidden sm:block">
+        
+        <input type="checkbox" value="synthwave" className="toggle theme-controller" />
+      </button>
             <button
               className="btn bg-purple-700 text-white"
               onClick={handleSignOut}
