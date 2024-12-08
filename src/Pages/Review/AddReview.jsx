@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
 import { AuthContext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
 
 const AddReview = () => {
+  useEffect(() => {
+    document.title = "Add Review | Chill Gamer ";
+  }, []);
   const { user } = useContext(AuthContext);
 
   const handleAddReview = (e) => {

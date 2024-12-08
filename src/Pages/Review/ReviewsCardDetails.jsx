@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
@@ -6,6 +6,9 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const ReviewsCardDetails = () => {
+  useEffect(() => {
+    document.title = "Review Details | Chill Gamer ";
+  }, []);
   const loaderData = useLoaderData();
   const {user} = useContext(AuthContext)
  const userEmail = user?.email;

@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateReview = () => {
+  useEffect(() => {
+    document.title = "Update Review | Chill Gamer ";
+  }, []);
   const loaderData = useLoaderData();
   const {
     description,

@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const Login = () => {
   useEffect(() => {
-    document.title = "Login | Coupon Chief";
+    document.title = "Login | Chill Gamer ";
   }, []);
   const { user, setUser, SignInEmailAndPassword, SignInGoogle, setLoginEmail } =
     useContext(AuthContext);

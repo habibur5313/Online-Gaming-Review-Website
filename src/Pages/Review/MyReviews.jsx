@@ -6,6 +6,9 @@ import Footer from "../Home/Footer";
 import ReviewCard from "./ReviewCard";
 
 const MyReviews = () => {
+  useEffect(() => {
+    document.title = "My Review | Chill Gamer ";
+  }, []);
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 

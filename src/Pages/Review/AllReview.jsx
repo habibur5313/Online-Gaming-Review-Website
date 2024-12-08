@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
@@ -7,6 +7,9 @@ import { Fade } from "react-awesome-reveal";
 import { Tooltip } from "react-tooltip";
 
 const AllReview = () => {
+  useEffect(() => {
+    document.title = "All Review | Chill Gamer ";
+  }, []);
   const loaderData = useLoaderData();
   const [reviews, setReviews] = useState(loaderData);
   const handleSort = (sort) => {

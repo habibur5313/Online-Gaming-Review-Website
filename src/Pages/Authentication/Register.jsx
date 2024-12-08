@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const Register = () => {
   useEffect(() => {
-    document.title = "Register | Coupon Chief";
+    document.title = "Register | Chill Gamer";
   }, []);
   const { setUser, SignUpEmailAndPassword, SignInGoogle, Update_information } =
     useContext(AuthContext);

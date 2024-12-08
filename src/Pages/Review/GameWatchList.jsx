@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import AllReviewCard from "./AllReviewCard";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
 import { AuthContext } from "../../Context/AuthProvider";
-import ReviewCard from "./ReviewCard";
 
 const GameWatchList = () => {
+  useEffect(() => {
+    document.title = "WatchList | Chill Gamer ";
+  }, []);
   const [watchLists, setWatchLists] = useState([]);
   const { user } = useContext(AuthContext);
   
@@ -16,19 +17,6 @@ const GameWatchList = () => {
         setWatchLists(data);
       });
   }, []);
-
-  // useEffect(() => {
-  //   const uniqueItems = [];
-  //   const map = new Map();
-  //   for (const item of items) {
-  //     if (!map.has(item.id)) {
-  //       map.set(item.id, true);
-  //       uniqueItems.push(item);
-  //     }
-  //   }
-  //   setWatchLists(uniqueItems);
-  // }, [items]);
-
   
 
   return (
