@@ -3,6 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
 import AllReviewCard from "./AllReviewCard";
+import { Fade } from "react-awesome-reveal";
+import { Tooltip } from "react-tooltip";
 
 const AllReview = () => {
   const loaderData = useLoaderData();
@@ -24,15 +26,17 @@ const AllReview = () => {
   }
   return (
     <div>
-      <div className="container mx-auto">
+      <div className="container mx-auto overflow-hidden">
         <div className="w-11/12 mx-auto">
           <Navbar></Navbar>
         </div>
         <div className="min-h-[calc(100vh-250px)]">
-          <h1 className="text-3xl mt-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
+         <Fade>
+         <h1 className="text-3xl mt-5 font-semibold  text-purple-700 text-center">
             All Review is here
           </h1>
-          <div className="flex justify-end items-center">
+         </Fade>
+          <div className="flex flex-col sm:flex-row justify-end items-center">
           <div className="flex justify-end">
             <div className="dropdown ">
               <div

@@ -46,8 +46,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/myReview',
-    element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
-    loader: () => fetch('https://assaignmet-10-server.vercel.app/reviews')
+    element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
   },
   {
     path: '/reviews/details/:id',

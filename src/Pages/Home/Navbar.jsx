@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext);
@@ -15,14 +16,10 @@ const Navbar = () => {
       {user && <NavLink to={"/WatchList"}>WatchList</NavLink>}
     </>
   );
-  const [showDropdown, setShowDropdown] = useState(false);
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
 
   return (
     <div className=" navbar pt-4  items-start rounded-xl ">
-      <div className="navbar-start">
+      <div className="navbar-start mb-10">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -47,7 +44,6 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        {/* <h3 className="btn btn-ghost  pl-0 md:text-3xl sm:text-xl font-semibold  ">Coupon Chief</h3> */}
         <h1 className="text-4xl font-semibold text-purple-500">
           {" "}
           Chill Gamer{" "}
@@ -63,27 +59,19 @@ const Navbar = () => {
           <div className="flex gap-4 relative">
             <button>
               <img
-                className="w-10 rounded-full cursor-pointer"
+                className="w-10 rounded-full my-anchor-element cursor-pointer"
                 src={user?.photoURL}
                 alt=""
-                onMouseEnter={toggleDropdown}
-                onMouseLeave={toggleDropdown}
+              
               />
             </button>
-     {showDropdown && (
-        <div
-          className="absolute top-12 right-1 bg-white rounded-md shadow-lg z-10"
-          onMouseEnter={() => setShowDropdown(true)}
-          onMouseLeave={() => setShowDropdown(false)}
-        >
-          {" "}
-          <div className="p-4">
-            {" "}
-            <p className="text-gray-700">{user?.displayName}</p>{" "}
-            <p className="text-gray-500">{user?.email}</p>{" "}
-          </div>{" "}
-        </div>
-      )}
+            <Tooltip anchorSelect=".my-anchor-element" place="top">
+              <div>
+                <p className="text-white">{user?.displayName}</p>
+                <p className="text-white">{user?.email}</p>
+              </div>
+            </Tooltip>
+
             <button
               className="btn bg-purple-700 text-white"
               onClick={handleSignOut}
@@ -106,9 +94,7 @@ const Navbar = () => {
             Sign In
           </Link>
         )}
-        
       </div>
-     
     </div>
   );
 };

@@ -9,7 +9,7 @@ import ReviewVideo from "./ReviewVideo";
 const Home = () => {
   return (
     <>
-      <div className="container mx-auto ">
+      <div className="container mx-auto overflow-hidden ">
         <div className="w-11/12 mx-auto">
           <Navbar></Navbar>
         </div>

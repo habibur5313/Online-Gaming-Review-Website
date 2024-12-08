@@ -73,7 +73,7 @@ const UpdateReview = () => {
 
   return (
     <div>
-      <div className="container mx-auto border">
+      <div className="container mx-auto overflow-hidden">
         <div className="w-11/12 mx-auto">
           <Navbar></Navbar>
         </div>

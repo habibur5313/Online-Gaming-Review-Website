@@ -3,9 +3,14 @@ import { useLoaderData } from "react-router-dom";
 import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const ReviewsCardDetails = () => {
   const loaderData = useLoaderData();
+  const {user} = useContext(AuthContext)
+ const userEmail = user?.email;
+ 
+  
   const {
     thumbnailUrl,
     name,
@@ -29,6 +34,7 @@ const ReviewsCardDetails = () => {
       genres,
       description,
       id: _id,
+      userEmail
     };
     fetch("https://assaignmet-10-server.vercel.app/watchLists", {
       method: "POST",
@@ -51,7 +57,7 @@ const ReviewsCardDetails = () => {
   };
   return (
     <div>
-      <div className="container mx-auto border">
+      <div className="container mx-auto overflow-hidden">
         <div className="w-11/12 mx-auto">
           <Navbar></Navbar>
         </div>

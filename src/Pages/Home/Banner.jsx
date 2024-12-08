@@ -12,6 +12,7 @@ import "animate.css";
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { AuthContext } from "../../Context/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Banner() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -20,7 +21,18 @@ export default function Banner() {
     <>
       {user && (
         <h1 className="text-3xl mt-10 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
-          Hello {user.displayName},Welcome To dashboard
+          {/*  */}
+          Hello {user.displayName},Welcome To 
+          <Typewriter
+            words={[' Home', ' Dashboard', ' Website']}
+            loop={30}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          
+          />
         </h1>
       )}
       <Swiper
