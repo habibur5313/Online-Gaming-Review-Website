@@ -28,7 +28,6 @@ const AddReview = () => {
       email,
       displayName,
     };
-    // console.log(review);
 
     fetch("https://assaignmet-10-server.vercel.app/reviews", {
       method: "POST",
