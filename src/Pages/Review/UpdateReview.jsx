@@ -73,15 +73,29 @@ const UpdateReview = () => {
   }
 
   const stringOptions = ["Auction", "RPG", "Adventure"];
-
+const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
   return (
-    <div>
-      <div className="container mx-auto overflow-hidden">
-        <div className="w-11/12 mx-auto">
-          <Navbar></Navbar>
+    <div
+        className={
+          darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
+        }
+      >
+     <div className="container mx-auto overflow-hidden ">
+        <div className="">
+          <Navbar toggleDarkMode={toggleDarkMode}></Navbar>
         </div>
-        <div className="min-h-[calc(100vh-250px)]">
-          <form onSubmit={handleAddReview}>
+        <div className="min-h-[calc(100vh-250px)] mt-40">
+          <form onSubmit={handleAddReview} className="text-black">
             <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12  mx-auto flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
               <input
                 type="text"

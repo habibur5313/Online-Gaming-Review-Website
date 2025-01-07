@@ -5,6 +5,10 @@ const Footer = () => {
   return (
     <div className="bg-neutral  text-neutral-content mt-10">
      <footer className="footer footer-center  rounded p-10">
+      <div>
+        <img className="w-20 rounded-full" src="https://i.ibb.co.com/7Xvg5ZN/logo-for-chill-gamer-website.jpg" alt="" />
+        <h1 className="text-2xl font-medium text-purple-700 max-w-md mx-auto">Chill Gaming Website for all online gaming review collection</h1>
+      </div>
   <nav className="flex flex-col sm:flex-row gap-4">
     <Link to={'/'} className="link link-hover">Home</Link>
     <Link to={'/allReviews'} className="link link-hover">All Reviews</Link>

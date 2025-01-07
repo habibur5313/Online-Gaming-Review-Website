@@ -27,15 +27,31 @@ const AllReview = () => {
   const handleAll = () => {
     setReviews(loaderData)
   }
+
+  const [darkMode, setDarkMode] = useState(false);
+    const toggleDarkMode = () => {
+      setDarkMode(!darkMode);
+    };
+    useEffect(() => {
+      if (darkMode) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }, [darkMode]);
   return (
-    <div>
-      <div className="container mx-auto overflow-hidden">
-        <div className="w-11/12 mx-auto">
-          <Navbar></Navbar>
+    <div
+        className={
+          darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
+        }
+      >
+     <div className="container mx-auto overflow-hidden ">
+        <div className="">
+          <Navbar toggleDarkMode={toggleDarkMode}></Navbar>
         </div>
-        <div className="min-h-[calc(100vh-250px)]">
+        <div className="min-h-[calc(100vh-250px)] mt-40">
          <Fade>
-         <h1 className="text-3xl mt-5 font-semibold  text-purple-700 text-center">
+         <h1 className="text-3xl mt-5 font-semibold uppercase  text-purple-700 text-center">
             All Review is here
           </h1>
          </Fade>
@@ -51,7 +67,7 @@ const AllReview = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content mt-5 menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow"
+                className="dropdown-content mt-5 menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow text-black"
               >
                 <li>
                   <button
@@ -84,7 +100,7 @@ const AllReview = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content mt-5 menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow"
+                className="dropdown-content mt-5 menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow text-black"
               >
                 <li>
                   <button
@@ -117,7 +133,7 @@ const AllReview = () => {
           <button onClick={handleAll}  className="btn m-1 mr-10 md:mr-20 text-2xl font-semibold">All</button>
 </div>
           </div>
-          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+          <div className=" grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
             {reviews.map((review) => (
               <AllReviewCard key={review._id} review={review}></AllReviewCard>
             ))}

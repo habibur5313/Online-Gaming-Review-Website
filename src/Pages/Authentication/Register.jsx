@@ -90,7 +90,7 @@ const Register = () => {
   };
   return (
     <div className="mt-10 md:mt-20 lg:mt-32 flex justify-center items-center">
-      <div className="card bg-base-100 p-5 w-full max-w-lg shrink-0 rounded-none border">
+      <div className="card bg-base-100 p-5 w-full max-w-lg shrink-0 py-20 rounded-xl border">
         <h1 className="text-2xl font-semibold text-center">Register now!</h1>
         <form
           onSubmit={handleSignUp}

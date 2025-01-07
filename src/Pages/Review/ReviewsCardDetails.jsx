@@ -58,13 +58,29 @@ const ReviewsCardDetails = () => {
         }
       });
   };
+
+  const [darkMode, setDarkMode] = useState(false);
+    const toggleDarkMode = () => {
+      setDarkMode(!darkMode);
+    };
+    useEffect(() => {
+      if (darkMode) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }, [darkMode]);
   return (
-    <div>
-      <div className="container mx-auto overflow-hidden">
-        <div className="w-11/12 mx-auto">
-          <Navbar></Navbar>
+    <div
+        className={
+          darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
+        }
+      >
+     <div className="container mx-auto overflow-hidden ">
+        <div className="">
+          <Navbar toggleDarkMode={toggleDarkMode}></Navbar>
         </div>
-        <div className="min-h-[calc(100vh-250px)]">
+        <div className="min-h-[calc(100vh-250px)] mt-40">
           <div className="card bg-base-100 max-w-2xl mx-auto shadow-xl">
             <figure>
               <img
@@ -73,7 +89,7 @@ const ReviewsCardDetails = () => {
                 alt="Shoes"
               />
             </figure>
-            <div className="card-body">
+            <div className="card-body text-black">
               <h2 className="text-3xl font-semibold">{name}</h2>
               <p className="text-xl font-medium">email: {email}</p>
               <p className="text-xl font-medium">name: {displayName}</p>

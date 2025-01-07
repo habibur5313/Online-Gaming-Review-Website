@@ -3,7 +3,7 @@ import React from "react";
 const ReviewVideo = () => {
   return (
     <div>
-      <h1 className="text-3xl mt-10 mb-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
+      <h1 className="text-3xl mt-10 mb-5 uppercase font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
         Review video from youtube
       </h1>
       <div className="grid grid-cols-1  lg:grid-cols-2 gap-4">

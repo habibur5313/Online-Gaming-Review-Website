@@ -79,18 +79,32 @@ const AddReview = () => {
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
   };
-
+const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
   return (
-    <div>
-      <div className="container mx-auto overflow-hidden">
-        <div className="w-11/12 mx-auto">
-          <Navbar></Navbar>
+    <div
+        className={
+          darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
+        }
+      >
+     <div className="container mx-auto overflow-hidden ">
+        <div className="">
+          <Navbar toggleDarkMode={toggleDarkMode}></Navbar>
         </div>
-        <div className="min-h-[calc(100vh-250px)]">
-        <h1 className="text-3xl mt-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
+        <div className="min-h-[calc(100vh-250px)] mt-40">
+        <h1 className="text-3xl uppercase mt-5 font-semibold animate__animated animate__pulse animate__infinite	infinite text-purple-700 text-center">
          {user.displayName},please add your review.
         </h1>
-          <form onSubmit={handleAddReview}>
+          <form onSubmit={handleAddReview} className="text-black">
             <div className="w-11/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12  mx-auto flex flex-col md:flex-row gap-4 mt-4 md:mt-8">
               <input
                 type="text"

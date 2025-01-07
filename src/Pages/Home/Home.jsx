@@ -6,6 +6,7 @@ import Banner from "./Banner";
 import HighestRatedReview from "./HighestRatedReview";
 import ReviewVideo from "./ReviewVideo";
 import Contact from "./Contact";
+import AboutUs from "./AboutUs";
 
 const Home = () => {
   useEffect(() => {
@@ -32,16 +33,21 @@ const Home = () => {
         }
       >
      <div className="container mx-auto overflow-hidden ">
-        <div className="w-11/12 mx-auto">
+        <div className="">
           <Navbar toggleDarkMode={toggleDarkMode}></Navbar>
         </div>
        <div className="min-h-[calc(100vh-250px)]">
+
+       <div className="mt-40 w-11/12 mx-auto">
        <Banner></Banner>
-        <HighestRatedReview></HighestRatedReview>
+       <HighestRatedReview></HighestRatedReview>
+       <AboutUs></AboutUs>
         <ReviewVideo></ReviewVideo>
         <Contact></Contact>
+       </div>
 
           <Outlet></Outlet>
+
        </div>
 
       </div>

@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Tooltip } from "react-tooltip";
 
-const Navbar = ({toggleDarkMode}) => {
+const Navbar = ({ toggleDarkMode }) => {
   const { user, handleSignOut } = useContext(AuthContext);
   const { pathname } = useLocation();
 
@@ -18,8 +18,8 @@ const Navbar = ({toggleDarkMode}) => {
   );
 
   return (
-    <div className=" navbar pt-4  items-start rounded-xl ">
-      <div className="navbar-start mb-10">
+    <div className=" navbar px-2 md:px-6 xl:px-10  flex items-center border fixed container mx-auto text-white bg-black bg-opacity-20 z-50 rounded-xl ">
+      <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -39,15 +39,21 @@ const Navbar = ({toggleDarkMode}) => {
           </div>
           <ul
             tabIndex={0}
-            className= " menu menu-sm dropdown-content bg-base-100  rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className=" menu menu-sm dropdown-content bg-base-100  rounded-box z-[1] mt-3 w-52 p-2 shadow text-black"
           >
             {links}
           </ul>
         </div>
-        <h1 className="text-4xl font-semibold text-purple-500">
-          {" "}
-          Chill Gamer{" "}
-        </h1>
+        <div className="flex items-center gap-2">
+          <img
+            className="w-10 rounded-full"
+            src="https://i.ibb.co.com/7Xvg5ZN/logo-for-chill-gamer-website.jpg"
+            alt=""
+          />
+          <h1 className="text-xl font-medium sm:text-2xl sm:font-semibold lg:text-3xl xl:text-4xl xl:font-bold text-purple-500 flex">
+            Chill<span className=" ml-1">Gamer</span>
+          </h1>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-2 xl:gap-4 text-xl font-medium ">
@@ -57,13 +63,11 @@ const Navbar = ({toggleDarkMode}) => {
       <div className="navbar-end">
         {user ? (
           <div className="flex items-center gap-4 relative">
-            
             <button>
               <img
                 className="w-10 rounded-full my-anchor-element cursor-pointer"
                 src={user?.photoURL}
                 alt=""
-              
               />
             </button>
             <Tooltip anchorSelect=".my-anchor-element" place="top">
@@ -72,10 +76,16 @@ const Navbar = ({toggleDarkMode}) => {
                 <p className="text-white">{user?.email}</p>
               </div>
             </Tooltip>
-            <button onClick={toggleDarkMode} className="p-2 m-4 border rounded hidden sm:block">
-        
-        <input type="checkbox" value="synthwave" className="toggle theme-controller" />
-      </button>
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 m-4 border rounded hidden sm:block"
+            >
+              <input
+                type="checkbox"
+                value="synthwave"
+                className="toggle theme-controller"
+              />
+            </button>
             <button
               className="btn bg-purple-700 text-white"
               onClick={handleSignOut}
