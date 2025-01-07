@@ -4,6 +4,9 @@
 # Live Link
 - https://broken-lift.surge.sh/
 
+#github server link
+https://github.com/habibur5313/assignment-10-Online-Gaming-Review-Website-server
+
 # Bullet Point Feature of this Project
 ## User Authentication:
 - Implement user registration and login functionality using Firebase Authentication or another auth service.
@@ -38,3 +41,6 @@
 - Users can add games to their watchlist to keep track of games they are interested in.
 
 - Watchlist management features, including adding, removing, and viewing watchlisted games.
+
+# Mark
+- 60 out of 60 
