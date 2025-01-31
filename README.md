@@ -2,7 +2,7 @@
 - Online Gaming Review Website.
 
 # Live Link
-- https://broken-lift.surge.sh/
+- http://online-gaming-review.surge.sh/
 
 #github server link
 https://github.com/habibur5313/assignment-10-Online-Gaming-Review-Website-server

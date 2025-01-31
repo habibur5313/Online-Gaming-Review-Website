@@ -43,15 +43,6 @@ const ReviewVideo = () => {
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
-        <iframe
-          className="w-full h-96 rounded-xl"
-          src="https://www.youtube.com/embed/qgWhKhL9Y_4?si=bwWP5PZxfirl43WP"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
       </div>
     </div>
   );

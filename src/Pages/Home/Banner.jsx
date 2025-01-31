@@ -48,28 +48,35 @@ export default function Banner() {
       >
         <SwiperSlide>
           <img
-            className="w-full  mx-auto h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
-            src="https://i.ibb.co.com/1KN7BXj/images-6.jpg"
+            className="w-full h-[300px] md:h-[500px] lg:h-[700px] rounded-xl"
+            src="https://i.ibb.co.com/db9wD2s/image-24.png"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="w-full  mx-auto h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
-            src="https://i.ibb.co.com/cc2YsWK/download-1.jpg"
+            className="w-full h-[300px] md:h-[500px] lg:h-[700px] rounded-xl"
+            src="https://i.ibb.co.com/nB8b9cY/image-23.png"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="w-full  mx-auto h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
-            src="https://i.ibb.co.com/PcGGVwc/download.jpg"
+            className="w-full h-[300px] md:h-[500px] lg:h-[700px] rounded-xl"
+            src="https://i.ibb.co.com/7xDD706/image-22.png"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="w-full  mx-auto h-[300px] md:h-[450px] lg:h-[600px] rounded-xl"
-            src="https://i.ibb.co.com/rZdMKdh/images-3.jpg"
+            className="w-full h-[300px] md:h-[500px] lg:h-[700px] rounded-xl"
+            src="https://i.ibb.co.com/GkNJMvf/image-21.png"
           />
         </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="w-full h-[300px] md:h-[500px] lg:h-[700px] rounded-xl"
+            src="https://i.ibb.co.com/x8DZSM0/image-25.png"
+          />
+        </SwiperSlide>
+      
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -83,25 +90,31 @@ export default function Banner() {
         <SwiperSlide>
           <img
             className="rounded-xl h-[120px]"
-            src="https://i.ibb.co.com/1KN7BXj/images-6.jpg"
+            src="https://i.ibb.co.com/db9wD2s/image-24.png"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="rounded-xl h-[120px]"
-            src="https://i.ibb.co.com/cc2YsWK/download-1.jpg"
+            src="https://i.ibb.co.com/nB8b9cY/image-23.png"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="rounded-xl h-[120px]"
-            src="https://i.ibb.co.com/PcGGVwc/download.jpg"
+            src="https://i.ibb.co.com/7xDD706/image-22.png"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="rounded-xl h-[120px]"
-            src="https://i.ibb.co.com/rZdMKdh/images-3.jpg"
+            src="https://i.ibb.co.com/GkNJMvf/image-21.png"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="rounded-xl h-[120px]"
+            src="https://i.ibb.co.com/x8DZSM0/image-25.png"
           />
         </SwiperSlide>
       </Swiper>
