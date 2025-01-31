@@ -53,7 +53,6 @@ https://github.com/habibur5313/assignment-10-Online-Gaming-Review-Website-server
 - tailwind css
 - firebase
 - node.js
-- next.js
 - express.js
 - mongodb
 
@@ -71,7 +70,6 @@ To run this project, you will need to have the following dependencies installed:
 ## Frontend
 
 - **React** (version 17.x or higher)
-- **Next.js** (version 10.x or higher)
 - **JavaScript (ES6+)**
 - **Axios** (version 0.21.x or higher)
 - **Tailwind CSS** (version 2.x or higher)
