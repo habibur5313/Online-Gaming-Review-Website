@@ -1,5 +1,5 @@
 <div align="center">
-  <img height="1000" src="https://i.ibb.co.com/c3wpg2M/Screenshot-2025-01-08-163437.png"  />
+  <img height="1000" src="https://i.ibb.co.com/xqHPV1yZ/Screenshot-2025-02-05-160311.png"  />
 </div>
 
 # Online Gaming Review Website  
