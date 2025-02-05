@@ -49,8 +49,8 @@
 ## Installation  
 ### 1. Clone the Repository  
 ```bash
-git clone https://github.com/habibur5313/assignment-10-Online-Gaming-Review-Website-server.git
-cd assignment-10-Online-Gaming-Review-Website-server
+git clone https://github.com/habibur5313/Online-Gaming-Review-Website.git
+cd Online-Gaming-Review-Website
 ```
 ### 2. Install Dependencies  
 ```bash
