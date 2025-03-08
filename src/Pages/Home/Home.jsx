@@ -33,13 +33,11 @@ const Home = () => {
         }
       >
      <div className="container mx-auto overflow-hidden ">
-        <div className="">
           <Navbar toggleDarkMode={toggleDarkMode}></Navbar>
-        </div>
        <div className="min-h-[calc(100vh-250px)]">
 
-       <div className="mt-40 w-11/12 mx-auto">
        <Banner></Banner>
+       <div className="w-11/12 mx-auto">
        <HighestRatedReview></HighestRatedReview>
        <AboutUs></AboutUs>
         <ReviewVideo></ReviewVideo>
