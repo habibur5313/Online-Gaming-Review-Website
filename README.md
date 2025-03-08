@@ -1,105 +1,105 @@
 <div align="center">
-  <img height="1000" src="https://i.ibb.co.com/c3wpg2M/Screenshot-2025-01-08-163437.png"  />
+  <img height="1000" src="https://i.ibb.co.com/xqHPV1yZ/Screenshot-2025-02-05-160311.png"  />
 </div>
 
+# Online Gaming Review Website  
 
-# Project Name
-- Online Gaming Review Website.
+## Introduction  
+**Online Gaming Review Website** is a platform for gamers to **share and explore reviews** of various games. Users can **submit reviews**, **rate games**, and **manage a personal watchlist**. The site is fully **responsive**, ensuring a seamless experience across all devices.  
 
-# Live Link
-- http://online-gaming-review.surge.sh/
+## Table of Contents  
+- [Live Demo](#live-demo)  
+- [Features](#features)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Dependencies](#dependencies)  
+- [Configuration](#configuration)  
+- [Contributors](#contributors)  
+- [License](#license)  
 
-# github server link
-https://github.com/habibur5313/assignment-10-Online-Gaming-Review-Website-server
+## Live Demo  
+🚀 **[Online Gaming Review Website](http://online-gaming-review.surge.sh/)**  
 
-# Bullet Point Feature of this Project
-## User Authentication:
-- Implement user registration and login functionality using Firebase Authentication or another auth service.
-- Users can create accounts, log in, and log out securely.
+🔗 **[Server Code Repository](https://github.com/habibur5313/assignment-10-Online-Gaming-Review-Website-server)**  
 
-## Review Submission:
+## Features  
+✅ **User Authentication**  
+- Secure **user registration and login** using Firebase Authentication.  
+- Users can **create accounts**, log in, and log out securely.  
 
-- Authenticated users can submit their game reviews, including text, ratings, and optional images or videos.
+✅ **Review Submission**  
+- **Authenticated users** can submit **game reviews** with text, ratings, and optional images/videos.  
+- **Form validation** ensures that reviews are complete and meet the required criteria.  
 
-- Form validation to ensure reviews are complete and meet required criteria.
+✅ **Review Management**  
+- Users can **edit** and **delete** their own reviews.  
+- **Admins/moderators** can **approve or reject** reviews for quality control.  
 
-## Review Management:
+✅ **Responsive Design**  
+- Fully **responsive** layout using **Tailwind CSS** for seamless usability on **desktop, tablet, and mobile**.  
 
-- Users can view, edit, and delete their own reviews.
+✅ **Sort Reviews**  
+- Sorting options based on **rating, date, or other criteria**.  
+- Users can select sorting order (e.g., **highest to lowest rating**, **newest to oldest**).  
 
-- Admin or moderators can approve or reject submitted reviews for quality control.
+✅ **Game Watchlist**  
+- Users can **add games to their watchlist** for future reference.  
+- **Watchlist management**: add, remove, and view games.  
 
-## Responsive Design:
+## Installation  
+### 1. Clone the Repository  
+```bash
+git clone https://github.com/habibur5313/Online-Gaming-Review-Website.git
+cd Online-Gaming-Review-Website
+```
+### 2. Install Dependencies  
+```bash
+npm install
+```
+### 3. Set Up Environment Variables  
+Create a `.env.local` file and add the following credentials:  
+```env
+VITE_apiKey=your_api_key_here
+VITE_authDomain=your_auth_domain_here
+VITE_projectId=your_project_id_here
+VITE_storageBucket=your_storage_bucket_here
+VITE_messagingSenderId=your_messaging_sender_id_here
+VITE_appId=your_app_id_here
+```
 
-- The website should be fully responsive, providing a seamless experience across all devices (desktop, tablet, mobile).
+### 4. Start the Development Server  
+```bash
+npm run dev
+```
 
-- Utilize Tailwind CSS to achieve a clean and responsive layout.
+## Usage  
+1. Open the **[Live Website](http://online-gaming-review.surge.sh/)**.  
+2. **Sign up or log in** using Firebase Authentication.  
+3. Browse **game reviews**, sort them based on rating or date.  
+4. **Submit your own review** with ratings and images/videos.  
+5. **Manage your reviews** (edit or delete your own submissions).  
+6. **Admins** can approve or reject reviews.  
+7. **Use the watchlist feature** to keep track of games you're interested in.  
 
-## Sort Reviews:
+## Dependencies  
+### **Technology Used**  
+- **Frontend**: React, JavaScript, Tailwind CSS  
+- **Backend**: Node.js, Express.js, MongoDB  
+- **Authentication**: Firebase  
+- **Package Dependencies**:  
+  - `react`, `firebase`, `react-hot-toast`, `react-icons`, `sweetalert2`, `swiper`, `react-tooltip`  
 
-- Implement sorting options for reviews based on rating, date, or other criteria.
+## Configuration  
+Ensure all **environment variables** are correctly set in `.env.local` before running the project. The project requires Firebase for authentication and MongoDB for storing game reviews.  
 
-- Provide a dropdown or button group for users to select their preferred sorting order (e.g., highest to lowest rating, newest to oldest).
+## Contributors  
+👨‍💻 **Habibur Rahman**  
+- GitHub: [habibur5313](https://github.com/habibur5313)  
 
-## Game WatchList:
+## License  
+This project is licensed under the **MIT License**.  
 
-- Users can add games to their watchlist to keep track of games they are interested in.
+---
 
-- Watchlist management features, including adding, removing, and viewing watchlisted games.
-
-# Technology Used
-- React
-- javascript
-- tailwind css
-- firebase
-- node.js
-- next.js
-- express.js
-- mongodb
-
-# Dependencies
-
-To run this project, you will need to have the following dependencies installed:
-
-## Backend
-
-- **Node.js** (version 14.x or higher)
-- **Express.js** (version 4.x or higher)
-- **MongoDB** (version 4.x or higher)
-- **Firebase Admin SDK** (version 9.x or higher for server-side integration)
-
-## Frontend
-
-- **React** (version 17.x or higher)
-- **Next.js** (version 10.x or higher)
-- **JavaScript (ES6+)**
-- **Axios** (version 0.21.x or higher)
-- **Tailwind CSS** (version 2.x or higher)
-
-## Dev Tools
-
-- **Nodemon** (version 2.x or higher)
-- **Webpack** (version 5.x or higher)
-
-## Testing
-
-- **React Testing Library** (version 11.x or higher)
-
-# Installation
-
-1. Clone the repository: `git clone https://github.com/habibur5313/Online-Gaming-Review-Website.git`
-2. Navigate to the project directory: `cd Online-Gaming-Review-Website`
-3. Install backend dependencies: `npm install`
-4. backend server running: `node index.js`
-5. Install frontend dependencies: `cd client && npm install`
-6. Start the development server: `npm run dev`
-
-# Usage
-
-1. Make sure MongoDB is running on your system.
-2. Configure Firebase in your project settings.
-3. Run the project: `npm start`
-
-
-# Mark
-- 60 out of 60 
+⭐ **Explore, review, and track your favorite games with Online Gaming Review Website!**  
+---
